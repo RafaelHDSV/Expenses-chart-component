@@ -73,6 +73,60 @@
       font-weight: 700;
     }
 
+    .spending {
+      display: flex;
+      flex-direction: column;
+      max-width: 25rem;
+      width: 100%;
+      background-color: var(--very_pale_orange);
+      margin: 1rem 0 0 0;
+      padding: 2rem;
+      border-radius: 1rem;
+    }
+
+    .spending h2 {
+      font-weight: 700;
+      font-size: 26px;
+      color: var(--dark_brown);
+    }
+
+    .spending .days {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-end;
+      max-height: 15rem;
+      height: 100vh;
+      padding: 0 0 1rem 0;
+      color: var(--medium_brown);
+      border-bottom: 0.1rem solid var(--medium_brown);
+    }
+
+    .mon,
+    .tue,
+    .wed,
+    .thu,
+    .fri,
+    .sat,
+    .sun {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .column_mon,
+    .column_tue,
+    .column_wed,
+    .column_thu,
+    .column_fri,
+    .column_sat,
+    .column_sun {
+      background-color: var(--soft_red);
+      width: 2rem;
+      height: 10px;
+    }
+
+
     /* .attribution {
       font-size: 11px;
       text-align: center;
@@ -98,27 +152,48 @@
     <h2>Spending - Last 7 days</h2>
 
     <div class="days">
-      <div class="mon"></div>
-      <div class="tue"></div>
-      <div class="wed"></div>
-      <div class="thu"></div>
-      <div class="fri"></div>
-      <div class="sat"></div>
-      <div class="sun"></div>
+      <div class="mon">
+        <div class="column_mon"></div>
+        <p>mon</p>
+      </div>
+
+      <div class="tue">
+        <div class="column_tue"></div>
+        <p>tue</p>
+      </div>
+
+      <div class="wed">
+        <div class="column_wed"></div>
+        <p>wed</p>
+      </div>
+
+      <div class="thu">
+        <div class="column_thu"></div>
+        <p>thu</p>
+      </div>
+
+      <div class="fri">
+        <div class="column_fri"></div>
+        <p>fri</p>
+      </div>
+
+      <div class="sat">
+        <div class="column_sat"></div>
+        <p>sat</p>
+      </div>
+
+      <div class="sun">
+        <div class="column_sun"></div>
+        <p>sun</p>
+      </div>
     </div>
 
-    <div class="total"></div>
+    <div class="total">
+      <div class="current_month"></div>
+
+      <div class="last_month"></div>
+    </div>
   </div>
-
-  <!--  -->
-
-  <!-- mon -->
-  <!-- tue -->
-  <!-- wed -->
-  <!-- thu -->
-  <!-- fri -->
-  <!-- sat -->
-  <!-- sun -->
 
   <!-- Total this month -->
   <!-- $478.33 -->
