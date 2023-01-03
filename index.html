@@ -15,6 +15,64 @@
   <title>Frontend Mentor | Expenses chart component</title>
 
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
+    /* font-family: 'DM Sans', sans-serif; */
+
+    :root {
+      --soft_red: hsl(10, 79%, 65%);
+      --cyan: hsl(186, 34%, 60%);
+      --dark_brown: hsl(25, 47%, 15%);
+      --medium_brown: hsl(28, 10%, 53%);
+      --cream: hsl(27, 66%, 92%);
+      --very_pale_orange: hsl(33, 100%, 98%);
+    }
+
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 18px;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-width: 100%;
+      min-height: 100vh;
+      background-color: var(--cream);
+    }
+
+    .my_balance {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 25rem;
+      width: 100%;
+      background-color: var(--soft_red);
+      padding: 2rem;
+      border-radius: 1rem;
+    }
+
+    .my_balance .amount {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      color: var(--very_pale_orange);
+    }
+
+    .amount p:nth-child(1) {
+      font-weight: 400;
+    }
+
+    .amount p:nth-child(2) {
+      font-size: 32px;
+      font-weight: 700;
+    }
+
     /* .attribution {
       font-size: 11px;
       text-align: center;
@@ -27,11 +85,32 @@
 </head>
 
 <body>
+  <div class="my_balance">
+    <div class="amount">
+      <p>My balance</p>
+      <p>$921.48</p>
+    </div>
 
-  <!-- My balance -->
-  <!-- $921.48 -->
+    <img src="images/logo.svg" alt="logo.svg">
+  </div>
 
-  <!-- Spending - Last 7 days -->
+  <div class="spending">
+    <h2>Spending - Last 7 days</h2>
+
+    <div class="days">
+      <div class="mon"></div>
+      <div class="tue"></div>
+      <div class="wed"></div>
+      <div class="thu"></div>
+      <div class="fri"></div>
+      <div class="sat"></div>
+      <div class="sun"></div>
+    </div>
+
+    <div class="total"></div>
+  </div>
+
+  <!--  -->
 
   <!-- mon -->
   <!-- tue -->
