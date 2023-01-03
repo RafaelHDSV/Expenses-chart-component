@@ -50,7 +50,7 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      max-width: 25rem;
+      max-width: 30rem;
       width: 100%;
       background-color: var(--soft_red);
       padding: 2rem;
@@ -76,7 +76,7 @@
     .spending {
       display: flex;
       flex-direction: column;
-      max-width: 25rem;
+      max-width: 30rem;
       width: 100%;
       background-color: var(--very_pale_orange);
       margin: 1rem 0 0 0;
@@ -112,6 +112,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      gap: .5rem;
     }
 
     .column_mon,
@@ -122,10 +123,54 @@
     .column_sat,
     .column_sun {
       background-color: var(--soft_red);
-      width: 2rem;
-      height: 10px;
+      width: 2.5rem;
+      max-height: 10rem;
+      height: 100vh;
+      border-radius: .3rem;
     }
 
+    .total {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 0 0 0;
+    }
+
+    .current_month {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .current_month p:nth-child(1) {
+      color: var(--medium_brown);
+      font-weight: 400;
+    }
+
+    .current_month p:nth-child(2) {
+      color: var(--dark_brown);
+      font-weight: 700;
+      font-size: 48px;
+    }
+
+    .last_month {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+    }
+
+    .last_month p:nth-child(1) {
+      font-weight: 700;
+      color: var(--dark_brown);
+    }
+
+    .last_month p:nth-child(2) {
+      font-weight: 400;
+      color: var(--medium_brown);
+    }
 
     /* .attribution {
       font-size: 11px;
@@ -189,9 +234,15 @@
     </div>
 
     <div class="total">
-      <div class="current_month"></div>
+      <div class="current_month">
+        <p>Total this month</p>
+        <p>$478.33</p>
+      </div>
 
-      <div class="last_month"></div>
+      <div class="last_month">
+        <p>+2.4%</p>
+        <p>from last month</p>
+      </div>
     </div>
   </div>
 
