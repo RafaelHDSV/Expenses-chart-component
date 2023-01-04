@@ -31,8 +31,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: URL SOLUTION HERE
-- Live Site URL: URL SITE HERE
+- Solution URL: https://www.frontendmentor.io/solutions/expenses-chart-component-e4tYK5Rfzm
+- Live Site URL: https://expenses-chart-component-rafael.netlify.app
 
 ### Screenshot
 
