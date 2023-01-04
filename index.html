@@ -57,18 +57,18 @@
       border-radius: 1rem;
     }
 
-    .my_balance .amount {
+    .my_balance .amount_balance {
       display: flex;
       flex-direction: column;
       gap: .5rem;
       color: var(--very_pale_orange);
     }
 
-    .amount p:nth-child(1) {
+    .amount_balance p:nth-child(1) {
       font-weight: 400;
     }
 
-    .amount p:nth-child(2) {
+    .amount_balance p:nth-child(2) {
       font-size: 32px;
       font-weight: 700;
     }
@@ -95,38 +95,46 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: flex-end;
-      max-height: 15rem;
+      max-height: 16rem;
       height: 100vh;
       padding: 0 0 1rem 0;
       color: var(--medium_brown);
       border-bottom: 0.1rem solid var(--medium_brown);
     }
 
-    .mon,
-    .tue,
-    .wed,
-    .thu,
-    .fri,
-    .sat,
-    .sun {
+    .day {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: .5rem;
     }
 
-    .column_mon,
-    .column_tue,
-    .column_wed,
-    .column_thu,
-    .column_fri,
-    .column_sat,
-    .column_sun {
+    .column {
       background-color: var(--soft_red);
       width: 2.5rem;
       max-height: 10rem;
       height: 10rem;
       border-radius: .3rem;
+      cursor: pointer;
+      transition: .5s all ease;
+    }
+
+    .column:hover {
+      opacity: .6;
+    }
+
+    .amount {
+      display: none;
+      background-color: var(--dark_brown);
+      color: var(--very_pale_orange);
+      padding: .2rem;
+      border-radius: .5rem;
+      font-weight: 400;
+      font-size: 16px;
+    }
+
+    .current_day {
+      background-color: var(--cyan);
     }
 
     .total {
@@ -200,7 +208,7 @@
 
 <body>
   <div class="my_balance">
-    <div class="amount">
+    <div class="amount_balance">
       <p>My balance</p>
       <p>$921.48</p>
     </div>
@@ -212,38 +220,45 @@
     <h2>Spending - Last 7 days</h2>
 
     <div class="days">
-      <div class="mon">
-        <div class="column_mon"></div>
+      <div class="day">
+        <p class="amount">$ 0.00</p>
+        <div class="column"></div>
         <p>mon</p>
       </div>
 
-      <div class="tue">
-        <div class="column_tue"></div>
+      <div class="day">
+        <p class="amount">$ 0.00</p>
+        <div class="column"></div>
         <p>tue</p>
       </div>
 
-      <div class="wed">
-        <div class="column_wed"></div>
+      <div class="day">
+        <p class="amount">$ 0.00</p>
+        <div class="column current_day"></div>
         <p>wed</p>
       </div>
 
-      <div class="thu">
-        <div class="column_thu"></div>
+      <div class="day">
+        <p class="amount">$ 0.00</p>
+        <div class="column"></div>
         <p>thu</p>
       </div>
 
-      <div class="fri">
-        <div class="column_fri"></div>
+      <div class="day">
+        <p class="amount">$ 0.00</p>
+        <div class="column"></div>
         <p>fri</p>
       </div>
 
-      <div class="sat">
-        <div class="column_sat"></div>
+      <div class="day">
+        <p class="amount">$ 0.00</p>
+        <div class="column"></div>
         <p>sat</p>
       </div>
 
-      <div class="sun">
-        <div class="column_sun"></div>
+      <div class="day">
+        <p class="amount">$ 0.00</p>
+        <div class="column"></div>
         <p>sun</p>
       </div>
     </div>
@@ -267,6 +282,31 @@
   </footer>
 
   <script>
+    let columnDays = document.querySelectorAll('.column')
+    let amountDays = document.querySelectorAll('.amount')
+
+    for (let i = 0; i < columnDays.length; i++) {
+      columnDays[i].addEventListener('mouseover', () => {
+        amountDays[i].style.display = 'flex'
+      })
+
+      columnDays[i].addEventListener('mouseout', () => {
+        amountDays[i].style.display = 'none'
+      })
+
+      // CORRIGIR
+      // columnDays[i].classList.add('current_day')
+    }
+
+    fetch('data.json').then((response) => {
+      response.json().then((days) => {
+        for (let i = 0; i < amountDays.length; i++) {
+          amountDays[i].innerHTML = `$ ${days[i].amount}`
+          columnDays[i].style.height = `${(days[i].amount) / 5}rem`
+          console.log(`${days[i].amount}rem`);
+        }
+      })
+    })
   </script>
 </body>
 
