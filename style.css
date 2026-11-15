@@ -165,9 +165,9 @@ body {
 }
 
 .attribution {
-    position: absolute;
-    bottom: 0;
-    padding: 1rem 0;
+    position: relative;
+    margin-top: 1.25rem;
+    padding: 0.5rem 0 1rem;
 }
 
 .attribution p {
